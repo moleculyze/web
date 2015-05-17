@@ -24,8 +24,8 @@
 
   </style>
   <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/bootstrap-slider.css"/>
   <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="slider/css/slider.css"/>
 
 
   <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
@@ -58,7 +58,7 @@
   <section id="inputs" class="row">
     <section class="col-md-12">
       <section id="fiber-starch-ratio-input" class="row">
-        <input id="fiber-starch-ratio-slider" title="Fiber / Starch Ratio selector" type="number"/>
+        <input id="fiber-starch-ratio-slider" title="Fiber / Starch Ratio selector" type="text"/>
       </section>
       <section id="enzyme-input" class="row">
         <section id="enz-1" class="col-xs-3">
@@ -67,10 +67,10 @@
           </div>
           <div class="row">
             <div class="col-xs-6 text-center">
-              <input id="enzyme-1-temp-slider" class="slider" data-slider-orientation="vertical" type="number" title="Enzyme 1 Temperature"/>
+              <input id="enzyme-1-temp-slider" class="slider" data-slider-orientation="vertical" type="text" title="Enzyme 1 Temperature"/>
             </div>
             <div class="col-xs-6 text-center">
-              <input id="enzyme-1-rate-slider" class="slider" data-slider-orientation="vertical" type="number" title="Enzyme 1 Rate"/>
+              <input id="enzyme-1-rate-slider" class="slider" data-slider-orientation="vertical" type="text" title="Enzyme 1 Rate"/>
             </div>
           </div>
         </section>
@@ -80,10 +80,10 @@
           </div>
           <div class="row">
             <div class="col-xs-6 text-center">
-              <input id="enzyme-2-temp-slider" class="slider" data-slider-orientation="vertical" type="number" title="Enzyme 2 Temperature"/>
+              <input id="enzyme-2-temp-slider" class="slider" data-slider-orientation="vertical" type="text" title="Enzyme 2 Temperature"/>
             </div>
             <div class="col-xs-6 text-center">
-              <input id="enzyme-2-rate-slider" class="slider" data-slider-orientation="vertical" type="number" title="Enzyme 2 Rate"/>
+              <input id="enzyme-2-rate-slider" class="slider" data-slider-orientation="vertical" type="text" title="Enzyme 2 Rate"/>
             </div>
           </div>
         </section>
@@ -93,10 +93,10 @@
           </div>
           <div class="row">
             <div class="col-xs-6 text-center">
-              <input id="enzyme-3-temp-slider" class="slider" data-slider-orientation="vertical" type="number" title="Enzyme 3 Temperature"/>
+              <input id="enzyme-3-temp-slider" class="slider" data-slider-orientation="vertical" type="text" title="Enzyme 3 Temperature"/>
             </div>
             <div class="col-xs-6 text-center">
-              <input id="enzyme-3-rate-slider" class="slider" data-slider-orientation="vertical" type="number" title="Enzyme 3 Rate"/>
+              <input id="enzyme-3-rate-slider" class="slider" data-slider-orientation="vertical" type="text" title="Enzyme 3 Rate"/>
             </div>
           </div>
         </section>
@@ -106,10 +106,10 @@
           </div>
           <div class="row">
             <div class="col-xs-6 text-center">
-              <input id="enzyme-4-temp-slider" class="slider" data-slider-orientation="vertical" type="number" title="Enzyme 4 Temperature"/>
+              <input id="enzyme-4-temp-slider" class="slider" data-slider-orientation="vertical" type="text" title="Enzyme 4 Temperature"/>
             </div>
             <div class="col-xs-6 text-center">
-              <input id="enzyme-4-rate-slider" class="slider" data-slider-orientation="vertical" type="number" title="Enzyme 4 Rate"/>
+              <input id="enzyme-4-rate-slider" class="slider" data-slider-orientation="vertical" type="text" title="Enzyme 4 Rate"/>
             </div>
           </div>
         </section>
@@ -123,12 +123,14 @@
 <script src="js/vendor/bootstrap.min.js"></script>
 
 <script src="js/main.js"></script>
-<script src="slider/js/bootstrap-slider.js"></script>
+<script src="js/bootstrap-slider.js"></script>
 <script src="js/vendor/knockout-3.3.0.js"></script>
 
 <script>
   $('#fiber-starch-ratio-slider').slider();
-  $('#enzyme-1-temp-slider').slider();
+  $('#enzyme-1-temp-slider').slider({
+    reversed: true
+  });
   $('#enzyme-1-rate-slider').slider();
   $('#enzyme-2-temp-slider').slider();
   $('#enzyme-2-rate-slider').slider();
