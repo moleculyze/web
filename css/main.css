@@ -97,3 +97,17 @@ body {
   margin-top: 50px;
   margin-bottom: 50px;
 }
+
+.enzyme {
+  border: 2px solid rgb(208, 207, 207);
+  padding-bottom: 40px;
+}
+.slider-header {
+  padding: 10px;
+  color: #3c6bf0;
+  font-weight: bold;
+}
+
+#go-button {
+  margin-bottom: 40px;
+}
