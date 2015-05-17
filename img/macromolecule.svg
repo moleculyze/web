@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="874px" height="456px" viewBox="0 0 874 456" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2 (9961) - http://www.bohemiancoding.com/sketch -->
+    <title>macromolecule</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <ellipse id="Oval-1" stroke="#979797" fill="#3C6BF0" sketch:type="MSShapeGroup" cx="64" cy="82" rx="63" ry="64"></ellipse>
+        <ellipse id="Oval-2" stroke="#979797" fill="#3C6BF0" sketch:type="MSShapeGroup" cx="127" cy="255.5" rx="51" ry="52.5"></ellipse>
+        <ellipse id="Oval-3" stroke="#979797" fill="#3C6BF0" sketch:type="MSShapeGroup" cx="303" cy="80" rx="77" ry="79"></ellipse>
+        <ellipse id="Oval-4" stroke="#979797" fill="#3C6BF0" sketch:type="MSShapeGroup" cx="355.5" cy="409.5" rx="44.5" ry="45.5"></ellipse>
+        <ellipse id="Oval-5" stroke="#979797" fill="#3C6BF0" sketch:type="MSShapeGroup" cx="634" cy="167.5" rx="82" ry="85.5"></ellipse>
+        <ellipse id="Oval-6" stroke="#979797" fill="#3C6BF0" sketch:type="MSShapeGroup" cx="818.5" cy="370" rx="54.5" ry="56"></ellipse>
+        <path d="M86.5,146.5 L107.5,202.5" id="Line" stroke="#979797" stroke-width="4" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+        <path d="M164,211 L237.5,134.5" id="Line" stroke="#979797" stroke-width="4" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+        <path d="M314.5,162.5 L346,360" id="Line" stroke="#979797" stroke-width="4" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+        <path d="M394.5,376.5 L572.5,231.5" id="Line" stroke="#979797" stroke-width="4" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+        <path d="M694.5,232.5 L777.5,324.5" id="Line" stroke="#979797" stroke-width="4" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+    </g>
+</svg>
