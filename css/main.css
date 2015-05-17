@@ -6,7 +6,7 @@
 
 
 .slider.slider-horizontal {
-  width: 100%;
+  width: 80%;
 }
 
 
@@ -24,13 +24,90 @@
   background-image: linear-gradient(to bottom, #060606 0%, #615E5E 100%);
 }
 
-#macro-molecule {
-  border: 4px solid black;
-  margin-left: 3px;
-  margin-right: 3px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  height: 400px;
+
+.responsive-image {
+  width: 80%;
 }
 
+#logo-loading {
+  padding:96px 118px;
+  max-width: 100%;
+  background: url('../img/moleculyze_icon_green.png') no-repeat scroll 0% 0% / contain transparent;
+}
 
+nav ul {
+ list-style: none;
+}
+
+.navbar-header .navbar-brand,
+.navbar-header .navbar-brand:hover {
+  color: #00bd86;
+}
+
+.btn.btn-primary,
+.btn.btn-primary:link,
+.btn.btn-primary:active,
+.btn.btn-primary:visited {
+  background-color: #00bd86;
+  background-image: none;
+  border: none;
+  border-radius: 0;
+  border-bottom: 2px solid #01986c;
+}
+
+.btn.btn-primary:hover {
+  background-color: #01986c;
+  border-bottom: 2px solid #007654;
+}
+
+.btn.btn-danger,
+.btn.btn-danger:link,
+.btn.btn-danger:active,
+.btn.btn-danger:visited {
+  background-color: #3c6bf0;
+  background-image: none;
+  border: none;
+  border-radius: 0;
+  border-bottom: 2px solid #315ad0;
+}
+
+.btn.btn-danger:hover {
+  background-color: #315ad0;
+  border-bottom: 2px solid #2648a7;
+}
+
+.box {
+  border: 2px solid rgb(208, 207, 207);
+  padding: 30px;
+  margin: 20px;
+}
+
+.selector-label {
+  padding: 3px;
+  margin-bottom: 30px;
+  font-size: 30px;
+  font-weight: 300;
+}
+
+body {
+  font-family: "Lato";
+}
+
+#macro-molecule {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.enzyme {
+  border: 2px solid rgb(208, 207, 207);
+  padding-bottom: 40px;
+}
+.slider-header {
+  padding: 10px;
+  color: #3c6bf0;
+  font-weight: bold;
+}
+
+#go-button {
+  margin-bottom: 40px;
+}

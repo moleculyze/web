@@ -4,6 +4,8 @@ var api = (function () {
 	var configuration = {};
 	var baseurl = 'http://janamargaret.com/hack/api/moleculyze-api/public/experiment';
 
+	var Config = function(){
+
 	$.ajax({
 		type: 'GET',
 		url: baseurl + '/config',
@@ -37,6 +39,7 @@ var api = (function () {
 			}
 		}
 	});
+	}
 
 	var startExperiment = function(){
 		$.ajax({

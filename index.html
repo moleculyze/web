@@ -23,6 +23,7 @@
 
 
   </style>
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="css/bootstrap-slider.css"/>
   <link rel="stylesheet" href="css/main.css">
@@ -56,81 +57,149 @@
 
 <main class="container-fluid">
   <section id="inputs" class="row">
-    <form id="experiment-data" action="#" method="post">
-      <section class="col-md-12">
-        <section id="fiber-starch-ratio-input" class="row">
-          <input id="fiber-starch-ratio-slider" title="Fiber / Starch Ratio selector" type="text" name="fiber_percentage"/>
+<form id="experiment-data" action="#" method="post">
+    <section class="col-md-12">
+    <div class="text-center">
+    <div class="box">
+    <div class='selector-label'>Fiber / Starch Ratio</div>
+      <section id="fiber-starch-ratio-input" class="row">
+        <input id="fiber-starch-ratio-slider" title="Fiber / Starch Ratio selector" type="text"/>
+      </section>
+    </div>
+    </div>
+    <div class='box'>
+      <div class="text-center"><div class="selector-label">Enzymes</div></div>
+      <section id="enzyme-input" class="row">
+        <section id="enz-1" class="enzyme col-xs-2">
+          <div class="row">
+            <h2 class="col-xs-12 text-center">1</h2>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 text-center">
+              <div class="slider-header">
+                <span class="btn btn-primary">temp</span>
+              </div>
+              <div class="slider-container">
+                <input id="enzyme-1-temp-slider" class="slider" data-slider-orientation="vertical" type="text" title="Enzyme 1 Temperature"/>
+              </div>
+            </div>
+            <div class="col-xs-6 text-center">
+              <div class="slider-header">
+                <span class="btn btn-danger">rate</span>
+              </div>
+              <div class="slider-container">
+                <input id="enzyme-1-rate-slider" class="slider" data-slider-orientation="vertical" type="text" title="Enzyme 1 Rate"/>
+              </div>
+            </div>
+          </div>
         </section>
-        <section id="enzyme-input" class="row">
-          <section id="enz-1" class="col-xs-3">
-            <div class="row">
-              <h2 class="col-xs-12 text-center">1</h2>
-            </div>
-            <div class="row">
-              <div class="col-xs-6 text-center">
-                <input id="enzyme-1-temp-slider" class="vslider" data-slider-orientation="vertical" type="text" title="Enzyme 1 Temperature" name="enzyme1_temp"/>
+        <section id="enz-2" class="enzyme col-xs-2 col-xs-offset-1">
+          <div class="row">
+            <h2 class="col-xs-12 text-center">2</h2>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 text-center">
+              <div class="slider-header">
+                <span class="btn btn-primary">temp</span>
               </div>
-              <div class="col-xs-6 text-center">
-                <input id="enzyme-1-rate-slider" class="vslider rate-slider" data-slider-orientation="vertical" type="text" title="Enzyme 1 Rate" name="enzyme1_rate"/>
-              </div>
-            </div>
-          </section>
-          <section id="enz-2" class="col-xs-3">
-            <div class="row">
-              <h2 class="col-xs-12 text-center">2</h2>
-            </div>
-            <div class="row">
-              <div class="col-xs-6 text-center">
-                <input id="enzyme-2-temp-slider" class="vslider" data-slider-orientation="vertical" type="text" title="Enzyme 2 Temperature" name="enzyme2_temp"/>
-              </div>
-              <div class="col-xs-6 text-center">
-                <input id="enzyme-2-rate-slider" class="vslider rate-slider" data-slider-orientation="vertical" type="text" title="Enzyme 2 Rate" name="enzyme2_rate"/>
+              <div class="slider-container">
+                <input id="enzyme-2-temp-slider" class="slider" data-slider-orientation="vertical" type="text" title="Enzyme 2 Temperature"/>
               </div>
             </div>
-          </section>
-          <section id="enz-3" class="col-xs-3">
-            <div class="row">
-              <h2 class="col-xs-12 text-center">3</h2>
-            </div>
-            <div class="row">
-              <div class="col-xs-6 text-center">
-                <input id="enzyme-3-temp-slider" class="vslider" data-slider-orientation="vertical" type="text" title="Enzyme 3 Temperature"/>
+            <div class="col-xs-6 text-center">
+              <div class="slider-header">
+                <span class="btn btn-danger">rate</span>
               </div>
-              <div class="col-xs-6 text-center">
-                <input id="enzyme-3-rate-slider" class="vslider rate-slider" data-slider-orientation="vertical" type="text" title="Enzyme 3 Rate"/>
+              <div class="slider-container">
+                <input id="enzyme-2-rate-slider" class="slider" data-slider-orientation="vertical" type="text" title="Enzyme 2 Rate"/>
               </div>
             </div>
-          </section>
-          <section id="enz-4" class="col-xs-3">
-            <div class="row">
-              <h2 class="col-xs-12 text-center">4</h2>
-            </div>
-            <div class="row">
-              <div class="col-xs-6 text-center">
-                <input id="enzyme-4-temp-slider" class="vslider" data-slider-orientation="vertical" type="text" title="Enzyme 4 Temperature"/>
+          </div>
+        </section>
+        <section id="enz-3" class="enzyme col-xs-2 col-xs-offset-2">
+          <div class="row">
+            <h2 class="col-xs-12 text-center">3</h2>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 text-center">
+              <div class="slider-header">
+                <span class="btn btn-primary">temp</span>
               </div>
-              <div class="col-xs-6 text-center">
-                <input id="enzyme-4-rate-slider" class="vslider rate-slider" data-slider-orientation="vertical" type="text" title="Enzyme 4 Rate"/>
+              <div class="slider-container">
+                <input id="enzyme-3-temp-slider" class="slider" data-slider-orientation="vertical" type="text" title="Enzyme 3 Temperature"/>
+              </div>
+            </div>
+            <div class="col-xs-6 text-center">
+              <div class="slider-header">
+                <span class="btn btn-danger">rate</span>
+              </div>
+              <div class="slider-container">
+                <input id="enzyme-3-rate-slider" class="slider" data-slider-orientation="vertical" type="text" title="Enzyme 3 Rate"/>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="enz-4" class="enzyme col-xs-2 col-xs-offset-1">
+          <div class="row">
+            <h2 class="col-xs-12 text-center">4</h2>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 text-center">
+              <div class="slider-header">
+                <span class="btn btn-primary">temp</span>
+              </div>
+              <div class="slider-container">
+                <input id="enzyme-4-temp-slider" class="slider" data-slider-orientation="vertical" type="text" title="Enzyme 4 Temperature"/>
+              </div>
+            </div>
+            <div class="col-xs-6 text-center">
+              <div class="slider-header">
+                <span class="btn btn-danger">rate</span>
+              </div>
+              <div class="slider-container">
+                <input id="enzyme-4-rate-slider" class="slider" data-slider-orientation="vertical" type="text" title="Enzyme 4 Rate"/>
               </div>
             </div>
           </section>
         </section>
       </section>
     </form>
-    <section class="row">
-      <div class="col-xs-12 text-center"><button id="go-button" class="btn btn-primary">Go!</button></div>
+      <section class="row">
+        <div class="col-xs-6 col-xs-offset-3 text-center"><button id="go-button" class="btn btn-block btn-primary">Go!</button></div>
+      </section>
     </section>
   </section>
   <section id="play" class="row">
-    <div id="macro-molecule"></div>
-    <div id="micro-molecules"></div>
-    <div id="dragon"></div>
+    <div id="results-msg" class="alert alert-info">
+      Scroll down to see your results!
+    </div>
+    <div id="macro-molecule">
+      <div class="text-center">
+        <img class="responsive-image" src="img/macromolecule.svg">
+      </div>
+    </div>
+    <div id="micro-molecules">
+      <div class="text-center">
+        <img class="responsive-image" src="img/bubbles.svg">
+      </div>
+    </div>
+    <div id="dragon">
+      <div class="text-center">
+        <img class="responsive-image" src="img/dragon.png">
+      </div>
+    </div>
+    <div id="fire">
+      <div class="text-center">
+        <img class="responsive-image" src="img/fire.png">
+      </div>
+    </div>
+
     <div id="reaction"></div>
     <div id="conclusion"></div>
-    <div id="result">
-      <div>Yield: <span id="result-yield"></span></div>
+    <div id="result" class="text-center">
+      <h1>Yield: <span id="result-yield"></span></h1>
       <!--<div>CO2: <span id="result-co2"></span></div>-->
-      <div>Energy Spent: <span id="result-energy"></span></div>
+      <h1>Energy Spent: <span id="result-energy"></span></h1>
       <!--<div>Score: <span id="result-score"></span></div>-->
     </div>
   </section>
@@ -145,6 +214,7 @@
 <script>
   var config = api.Config();
   $('#inputs').hide();
+  $('#results-msg').hide();
 
   $('#fiber-starch-ratio-slider').slider({
     min: 0,
@@ -164,6 +234,7 @@
   $('#go-button').click(function(e) {
     var form_data = {};
     $('#inputs').hide();
+    $('#results-msg').show();
     form_data.fiber_percentage = $('#fiber-starch-ratio-slider').val();
     form_data.enzyme1_rate = $('#enzyme-1-rate-slider').val();
     form_data.enzyme1_temp = $('#enzyme-1-temp-slider').val();
@@ -176,7 +247,7 @@
     api.runExperiment(form_data);
     setTimeout(function () {
       api.getResults();
-    }, 5000);
+    }, 500);
   });
 
 </script>
