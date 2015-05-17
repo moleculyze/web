@@ -32,7 +32,7 @@
 #logo-loading {
   padding:96px 118px;
   max-width: 100%;
-  background: url('/img/moleculyze_icon_green.png') no-repeat scroll 0% 0% / contain transparent;
+  background: url('../img/moleculyze_icon_green.png') no-repeat scroll 0% 0% / contain transparent;
 }
 
 nav ul {
