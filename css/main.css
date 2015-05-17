@@ -92,3 +92,13 @@ nav ul {
 body {
   font-family: "Lato";
 }
+
+.enzyme {
+  border: 2px solid rgb(208, 207, 207);
+  padding-bottom: 40px;
+}
+.slider-header {
+  padding: 10px;
+  color: #3c6bf0;
+  font-weight: bold;
+}
