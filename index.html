@@ -20,6 +20,11 @@
     main {
       padding-top: 25px;
     }
+    .fiber-starch-ratio-label {
+      padding: 25px;
+      font-size: larger;
+      font-weight: bold;
+    }
   </style>
   <link rel="stylesheet" href="css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="css/main.css">
@@ -54,13 +59,14 @@
 
 <main class="container-fluid">
   <section class="row">
-    <section id="inputs" class="col-md-6">
+    <section id="fiber-starch-ratio" class="col-md-2">
+      <div class="row">
+        <div class="col-md-4"><input id="fiber-starch-ratio-slider" class="slider" data-slider-orientation="vertical" type="text" title="Fiber / Starch Ratio Selector"/></div>
+        <div class="col-md-8 fiber-starch-ratio-label">Fiber /<br> Starch<br> Ratio</div>
+      </div>
+    </section>
+    <section id="inputs" class="col-md-4">
       <section id="fiber-and-enzymes" class="row">
-        <section id="fiber-percentage-section" class="col-md-6">
-          <label for="fiber-percentage">
-            <input id="fiber-percentage" name="fiber_percentage" type="text"/> Fiber Percentage
-          </label>
-        </section>
         <section id="fiber-enzymes" class="col-md-6">
           <section id="enzyme-1" class="row">
             <div class="col-lg-12">Enzyme 1</div>
@@ -91,11 +97,6 @@
         </section>
       </section>
       <section id="starch-and-enzymes" class="row">
-        <section id="starch-percentage-section" class="col-md-6">
-          <label for="starch-percentage">
-            <input id="starch-percentage" name="starch_percentage" type="text"/> Starch Percentage
-          </label>
-        </section>
         <section id="starch-enzymes" class="col-md-6">
           <section id="enzyme-3" class="row">
             <div class="col-lg-12">Enzyme 3</div>
@@ -159,8 +160,7 @@
 <script src="js/vendor/knockout-3.3.0.js"></script>
 
 <script>
-  $('#fiber-percentage').slider();
-  $('#starch-percentage').slider();
+  $('#fiber-starch-ratio-slider').slider();
   $('#enzyme-1-temp-slider').slider();
   $('#enzyme-1-rate-slider').slider();
   $('#enzyme-2-temp-slider').slider();
