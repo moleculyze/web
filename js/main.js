@@ -99,7 +99,3 @@ var api = (function () {
 		showError: showError
 	};
 }());
-
-$(document).ready(function(){
-	api.getResults();
-});
