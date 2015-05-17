@@ -33,7 +33,7 @@
   height: 20px;
 }
 .slider.slider-horizontal .slider-track {
-  height: 10px;
+  height: 5px;
   width: 100%;
   margin-top: -5px;
   top: 50%;
@@ -73,7 +73,7 @@
   width: 20px;
 }
 .slider.slider-vertical .slider-track {
-  width: 10px;
+  width: 5px;
   height: 100%;
   margin-left: -5px;
   left: 50%;
