@@ -47,8 +47,8 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="navbar navbar-nav">
-        <li><button type="button" class="btn btn-primary navbar-btn">New Experiment</button></li>
-        <li><button type="button" class="btn btn-danger navbar-btn" disabled>Save Experiment</button></li>
+        <li><button id="new-experiment" type="button" class="btn btn-primary navbar-btn">New Experiment</button></li>
+        <!--<li><button id="save-experiement" type="button" class="btn btn-danger navbar-btn" disabled>Save Experiment</button></li>-->
       </ul>
     </div><!--/.navbar-collapse -->
   </div>
@@ -56,67 +56,69 @@
 
 <main class="container-fluid">
   <section id="inputs" class="row">
-    <section class="col-md-12">
-      <section id="fiber-starch-ratio-input" class="row">
-        <input id="fiber-starch-ratio-slider" title="Fiber / Starch Ratio selector" type="text"/>
+    <form id="experiment-data" action="#" method="post">
+      <section class="col-md-12">
+        <section id="fiber-starch-ratio-input" class="row">
+          <input id="fiber-starch-ratio-slider" title="Fiber / Starch Ratio selector" type="text" name="fiber_percentage"/>
+        </section>
+        <section id="enzyme-input" class="row">
+          <section id="enz-1" class="col-xs-3">
+            <div class="row">
+              <h2 class="col-xs-12 text-center">1</h2>
+            </div>
+            <div class="row">
+              <div class="col-xs-6 text-center">
+                <input id="enzyme-1-temp-slider" class="vslider" data-slider-orientation="vertical" type="text" title="Enzyme 1 Temperature" name="enzyme1_temp"/>
+              </div>
+              <div class="col-xs-6 text-center">
+                <input id="enzyme-1-rate-slider" class="vslider rate-slider" data-slider-orientation="vertical" type="text" title="Enzyme 1 Rate" name="enzyme1_rate"/>
+              </div>
+            </div>
+          </section>
+          <section id="enz-2" class="col-xs-3">
+            <div class="row">
+              <h2 class="col-xs-12 text-center">2</h2>
+            </div>
+            <div class="row">
+              <div class="col-xs-6 text-center">
+                <input id="enzyme-2-temp-slider" class="vslider" data-slider-orientation="vertical" type="text" title="Enzyme 2 Temperature" name="enzyme2_temp"/>
+              </div>
+              <div class="col-xs-6 text-center">
+                <input id="enzyme-2-rate-slider" class="vslider rate-slider" data-slider-orientation="vertical" type="text" title="Enzyme 2 Rate" name="enzyme2_rate"/>
+              </div>
+            </div>
+          </section>
+          <section id="enz-3" class="col-xs-3">
+            <div class="row">
+              <h2 class="col-xs-12 text-center">3</h2>
+            </div>
+            <div class="row">
+              <div class="col-xs-6 text-center">
+                <input id="enzyme-3-temp-slider" class="vslider" data-slider-orientation="vertical" type="text" title="Enzyme 3 Temperature"/>
+              </div>
+              <div class="col-xs-6 text-center">
+                <input id="enzyme-3-rate-slider" class="vslider rate-slider" data-slider-orientation="vertical" type="text" title="Enzyme 3 Rate"/>
+              </div>
+            </div>
+          </section>
+          <section id="enz-4" class="col-xs-3">
+            <div class="row">
+              <h2 class="col-xs-12 text-center">4</h2>
+            </div>
+            <div class="row">
+              <div class="col-xs-6 text-center">
+                <input id="enzyme-4-temp-slider" class="vslider" data-slider-orientation="vertical" type="text" title="Enzyme 4 Temperature"/>
+              </div>
+              <div class="col-xs-6 text-center">
+                <input id="enzyme-4-rate-slider" class="vslider rate-slider" data-slider-orientation="vertical" type="text" title="Enzyme 4 Rate"/>
+              </div>
+            </div>
+          </section>
+        </section>
       </section>
-      <section id="enzyme-input" class="row">
-        <section id="enz-1" class="col-xs-3">
-          <div class="row">
-            <h2 class="col-xs-12 text-center">1</h2>
-          </div>
-          <div class="row">
-            <div class="col-xs-6 text-center">
-              <input id="enzyme-1-temp-slider" class="slider" data-slider-orientation="vertical" type="text" title="Enzyme 1 Temperature"/>
-            </div>
-            <div class="col-xs-6 text-center">
-              <input id="enzyme-1-rate-slider" class="slider" data-slider-orientation="vertical" type="text" title="Enzyme 1 Rate"/>
-            </div>
-          </div>
-        </section>
-        <section id="enz-2" class="col-xs-3">
-          <div class="row">
-            <h2 class="col-xs-12 text-center">2</h2>
-          </div>
-          <div class="row">
-            <div class="col-xs-6 text-center">
-              <input id="enzyme-2-temp-slider" class="slider" data-slider-orientation="vertical" type="text" title="Enzyme 2 Temperature"/>
-            </div>
-            <div class="col-xs-6 text-center">
-              <input id="enzyme-2-rate-slider" class="slider" data-slider-orientation="vertical" type="text" title="Enzyme 2 Rate"/>
-            </div>
-          </div>
-        </section>
-        <section id="enz-3" class="col-xs-3">
-          <div class="row">
-            <h2 class="col-xs-12 text-center">3</h2>
-          </div>
-          <div class="row">
-            <div class="col-xs-6 text-center">
-              <input id="enzyme-3-temp-slider" class="slider" data-slider-orientation="vertical" type="text" title="Enzyme 3 Temperature"/>
-            </div>
-            <div class="col-xs-6 text-center">
-              <input id="enzyme-3-rate-slider" class="slider" data-slider-orientation="vertical" type="text" title="Enzyme 3 Rate"/>
-            </div>
-          </div>
-        </section>
-        <section id="enz-4" class="col-xs-3">
-          <div class="row">
-            <h2 class="col-xs-12 text-center">4</h2>
-          </div>
-          <div class="row">
-            <div class="col-xs-6 text-center">
-              <input id="enzyme-4-temp-slider" class="slider" data-slider-orientation="vertical" type="text" title="Enzyme 4 Temperature"/>
-            </div>
-            <div class="col-xs-6 text-center">
-              <input id="enzyme-4-rate-slider" class="slider" data-slider-orientation="vertical" type="text" title="Enzyme 4 Rate"/>
-            </div>
-          </div>
-        </section>
-      </section>
-      <section class="row">
-        <div class="col-xs-12 text-center"><button id="go-button" class="btn btn-primary">Go!</button></div>
-      </section>
+    </form>
+    <section class="row">
+      <div class="col-xs-12 text-center"><button id="go-button" class="btn btn-primary">Go!</button></div>
     </section>
   </section>
   <section id="play" class="row">
@@ -125,18 +127,58 @@
     <div id="dragon"></div>
     <div id="reaction"></div>
     <div id="conclusion"></div>
-    <div id="result"></div>
+    <div id="result">
+      <div>Yield: <span id="result-yield"></span></div>
+      <!--<div>CO2: <span id="result-co2"></span></div>-->
+      <div>Energy Spent: <span id="result-energy"></span></div>
+      <!--<div>Score: <span id="result-score"></span></div>-->
+    </div>
   </section>
-  </main>
+</main>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 <script src="js/vendor/bootstrap.min.js"></script>
 <script src="js/vendor/bootstrap-slider.js"></script>
 <script src="js/vendor/knockout-3.3.0.js"></script>
+<script src="js/vendor/lodash.min.js"></script>
 <script src="js/main.js"></script>
 
 <script>
-  $('#fiber-starch-ratio-slider').slider();
-  $('.slider').slider({reversed: true});
+  var config = api.Config();
+  $('#inputs').hide();
+
+  $('#fiber-starch-ratio-slider').slider({
+    min: 0,
+    max: 100,
+    value: 50
+  });
+  $('.vslider').slider({reversed: true});
+
+
+  $('#experiment-data').submit(function() {
+    e.preventDefault();
+  });
+  $('#new-experiment').click(function(e) {
+    $('#inputs').show();
+    initial_values = api.startExperiment();
+  });
+  $('#go-button').click(function(e) {
+    var form_data = {};
+    $('#inputs').hide();
+    form_data.fiber_percentage = $('#fiber-starch-ratio-slider').val();
+    form_data.enzyme1_rate = $('#enzyme-1-rate-slider').val();
+    form_data.enzyme1_temp = $('#enzyme-1-temp-slider').val();
+    form_data.enzyme2_rate = $('#enzyme-2-rate-slider').val();
+    form_data.enzyme2_temp = $('#enzyme-2-temp-slider').val();
+    form_data.enzyme3_rate = $('#enzyme-3-rate-slider').val();
+    form_data.enzyme3_temp = $('#enzyme-3-temp-slider').val();
+    form_data.enzyme4_rate = $('#enzyme-4-rate-slider').val();
+    form_data.enzyme4_temp = $('#enzyme-4-temp-slider').val();
+    api.runExperiment(form_data);
+    setTimeout(function () {
+      api.getResults();
+    }, 5000);
+  });
+
 </script>
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <!--<script>

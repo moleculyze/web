@@ -1,16 +1,71 @@
 var api = (function () {
 	var experimentId = 0;
 	var resultsLocation = '';
+	var configuration = {};
+	var baseurl = 'http://janamargaret.com/hack/api/moleculyze-api/public/experiment';
+
+	$.ajax({
+		type: 'GET',
+		url: baseurl + '/config',
+		dataType: 'json',
+		crossDomain: true,
+		success: function(data, status, xhr) {
+			if (data.status == 200) {
+				$('.rate-slider').slider({
+					min: data.config.rate_low,
+					max: data.config.rate_high
+				});
+
+				$('#enzyme-1-temp-slider').slider({
+					min: data.config.enzyme1_temp_low,
+					max: data.config.enzyme1_temp_high
+				});
+				$('#enzyme-2-temp-slider').slider({
+					min: data.config.enzyme2_temp_low,
+					max: data.config.enzyme2_temp_high
+				});
+				$('#enzyme-3-temp-slider').slider({
+					min: data.config.enzyme3_temp_low,
+					max: data.config.enzyme3_temp_high
+				});
+				$('#enzyme-4-temp-slider').slider({
+					min: data.config.enzyme4_temp_low,
+					max: data.config.enzyme4_temp_high
+				});
+			} else {
+				api.showError('could not get configuration');
+			}
+		}
+	});
 
 	var startExperiment = function(){
 		$.ajax({
 			type: "GET",
-			url: 'http://janamargaret.com/hack/api/moleculyze-api/public/experiment/start',
-			dataType : 'jsonp',
+			url: baseurl + '/start',
+			dataType : 'json',
 			crossDomain:true,
 			success: function(data, status, xhr) {
+				var res;
 				if(data.status == 200){
-					experimentId = data.result.id;
+					res = data.result;
+					experimentId = res.id;
+					$('#fiber-starch-ratio-slider').slider({value: res.fiber_percentage});
+					$('#enzyme-1-temp-slider').slider({value: res.enzyme1_temp});
+					$('#enzyme-1-rate-slider').slider({value: res.enzyme1_rate});
+					$('#enzyme-2-temp-slider').slider({value: res.enzyme2_temp});
+					$('#enzyme-2-rate-slider').slider({value: res.enzyme2_rate});
+					$('#enzyme-3-temp-slider').slider({value: res.enzyme3_temp});
+					$('#enzyme-3-rate-slider').slider({value: res.enzyme3_rate});
+					$('#enzyme-4-temp-slider').slider({value: res.enzyme4_temp});
+					$('#enzyme-4-rate-slider').slider({value: res.enzyme4_rate});
+					$('#enzyme-1-temp-slider').val(res.enzyme1_temp);
+					$('#enzyme-1-rate-slider').val(res.enzyme1_rate);
+					$('#enzyme-2-temp-slider').val(res.enzyme2_temp);
+					$('#enzyme-2-rate-slider').val(res.enzyme2_rate);
+					$('#enzyme-3-temp-slider').val(res.enzyme3_temp);
+					$('#enzyme-3-rate-slider').val(res.enzyme3_rate);
+					$('#enzyme-4-temp-slider').val(res.enzyme4_temp);
+					$('#enzyme-4-rate-slider').val(res.enzyme4_rate);
 				} else {
 					api.showError('could not start experiment');
 				}
@@ -18,45 +73,35 @@ var api = (function () {
 		});
 	};
 
-	var runExperiment = function(){
+	var runExperiment = function(data){
+		var dataString;
+		dataString = 'fiber_percentage=' + data.fiber_percentage +
+			'&enzyme1_rate=' + data.enzyme1_rate +
+			'&enzyme1_temp=' + data.enzyme1_temp +
+			'&enzyme2_rate=' + data.enzyme2_rate +
+			'&enzyme2_temp=' + data.enzyme2_temp +
+			'&enzyme3_rate=' + data.enzyme3_rate +
+			'&enzyme3_temp=' + data.enzyme3_temp +
+			'&enzyme4_rate=' + data.enzyme4_rate +
+			'&enzyme4_temp=' + data.enzyme4_temp;
 		if(experimentId != 0){
-			var fiber_percentage = .8;
-			var starch_percentage = .2;
-			var enzyme1_temp = 50;
-			var enzyme1_rate = 40;
-			var enzyme2_temp = 80;
-			var enzyme2_rate = 10;
-			var enzyme3_temp = 140;
-			var enzyme3_rate = 1;
-			var enzyme4_temp = 100;
-			var enzyme4_rate = 50;
-			var yeast_temp = 80;
-			var yeast_rate = 4;
 			$.ajax({
 				type: "POST",
-				url: 'http://janamargaret.com/hack/api/moleculyze-api/public/experiment/' + api.experimentId,
-				data: {
-					fiber_percentage: fiber_percentage,
-					starch_percentage: starch_percentage,
-					enzyme1_temp: enzyme1_temp,
-					enzyme1_rate: enzyme1_rate,
-					enzyme2_temp: enzyme2_temp,
-					enzyme2_rate: enzyme2_rate,
-					enzyme3_temp: enzyme3_temp,
-					enzyme3_rate: enzyme3_rate,
-					enzyme4_temp: enzyme4_temp,
-					enzyme4_rate: enzyme4_rate,
-					yeast_temp: yeast_temp,
-					yeast_rate: yeast_rate
-				},
-				dataType: 'jsonp',
+				url: baseurl + '/run/' + experimentId,
+				data: dataString,
+				dataType: 'json',
 				crossDomain: true,
 				success: function(data, status, xhr) {
 					if(data.status == 400){
 						var message = '';
-						for(var i=0; i< data.messages.length; i++){
-							message += '-'+data.messages[i]+'<br/>';
-						}
+						message = _.values(data.messages).join(' - ' );
+
+						//{
+						//	message
+						//})
+						//for(var i=0; i< data.messages.length; i++){
+						//	message += '-'+data.messages[i]+'<br/>';
+						//}
 						api.showError(message);
 					} else {
 						resultsLocation = data.location;
@@ -72,12 +117,16 @@ var api = (function () {
 		if(resultsLocation != ''){
 			$.ajax({
 				type: "GET",
-				url: 'http://janamargaret.com/hack/api/moleculyze-api/public' + resultsLocation,
-				dataType : 'jsonp',
+				url: baseurl + '/results/' + experimentId,
+				dataType : 'json',
 				crossDomain:true,
 				success: function(data, status, xhr) {
 					if(data.status == 200){
-						alert(data.results);
+						var res = data.result;
+						$('#result-yield').html(res.yield_amount);
+						//$('#result-co2').html(res.co2_amount);
+						$('#result-energy').html(res.energy_cost);
+						//$('#result-score').html(res.score);
 					} else {
 						api.showError(data.message);
 					}
@@ -89,10 +138,15 @@ var api = (function () {
 	};
 
 	var showError = function(message){
-		$('.container-fluid').prepend($('<div class="alert alert-danger">'+message+'</div>').delay(3000).slideUp('slow',function() { $(this).remove(); }));
+		$('main').prepend($('<div class="alert alert-danger">'+message+'</div>').delay(3000).slideUp('slow',function() { $(this).remove(); }));
+	};
+
+	var Config = function() {
+		return configuration;
 	};
 
 	return {
+		Config: Config,
 		startExperiment: startExperiment,
 		runExperiment: runExperiment,
 		getResults: getResults,
