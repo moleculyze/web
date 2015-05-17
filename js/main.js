@@ -6,40 +6,46 @@ var api = (function () {
 
 	var Config = function(){
 
-	$.ajax({
-		type: 'GET',
-		url: baseurl + '/config',
-		dataType: 'json',
-		crossDomain: true,
-		success: function(data, status, xhr) {
-			if (data.status == 200) {
-				$('.rate-slider').slider({
-					min: data.config.rate_low,
-					max: data.config.rate_high
-				});
+		$.ajax({
+			type: 'GET',
+			url: baseurl + '/config',
+			dataType: 'json',
+			crossDomain: true,
+			success: function(data, status, xhr) {
+				if (data.status == 200) {
+					$('#fiber-starch-ratio-slider').slider({
+						min: 0,
+						max: 100,
+						value: 50
+					});
+					$('.vslider').slider({ orientation: 'vertical', reversed: true});
+					$('.rate-slider').slider({
+						min: data.config.rate_low,
+						max: data.config.rate_high
+					});
 
-				$('#enzyme-1-temp-slider').slider({
-					min: data.config.enzyme1_temp_low,
-					max: data.config.enzyme1_temp_high
-				});
-				$('#enzyme-2-temp-slider').slider({
-					min: data.config.enzyme2_temp_low,
-					max: data.config.enzyme2_temp_high
-				});
-				$('#enzyme-3-temp-slider').slider({
-					min: data.config.enzyme3_temp_low,
-					max: data.config.enzyme3_temp_high
-				});
-				$('#enzyme-4-temp-slider').slider({
-					min: data.config.enzyme4_temp_low,
-					max: data.config.enzyme4_temp_high
-				});
-			} else {
-				api.showError('could not get configuration');
+					$('#enzyme-1-temp-slider').slider({
+						min: data.config.enzyme1_temp_low,
+						max: data.config.enzyme1_temp_high
+					});
+					$('#enzyme-2-temp-slider').slider({
+						min: data.config.enzyme2_temp_low,
+						max: data.config.enzyme2_temp_high
+					});
+					$('#enzyme-3-temp-slider').slider({
+						min: data.config.enzyme3_temp_low,
+						max: data.config.enzyme3_temp_high
+					});
+					$('#enzyme-4-temp-slider').slider({
+						min: data.config.enzyme4_temp_low,
+						max: data.config.enzyme4_temp_high
+					});
+				} else {
+					api.showError('could not get configuration');
+				}
 			}
-		}
-	});
-	}
+		});
+	};
 
 	var startExperiment = function(){
 		$.ajax({
@@ -53,22 +59,14 @@ var api = (function () {
 					res = data.result;
 					experimentId = res.id;
 					$('#fiber-starch-ratio-slider').slider({value: res.fiber_percentage});
-					$('#enzyme-1-temp-slider').slider({value: res.enzyme1_temp});
-					$('#enzyme-1-rate-slider').slider({value: res.enzyme1_rate});
-					$('#enzyme-2-temp-slider').slider({value: res.enzyme2_temp});
-					$('#enzyme-2-rate-slider').slider({value: res.enzyme2_rate});
-					$('#enzyme-3-temp-slider').slider({value: res.enzyme3_temp});
-					$('#enzyme-3-rate-slider').slider({value: res.enzyme3_rate});
-					$('#enzyme-4-temp-slider').slider({value: res.enzyme4_temp});
-					$('#enzyme-4-rate-slider').slider({value: res.enzyme4_rate});
-					$('#enzyme-1-temp-slider').val(res.enzyme1_temp);
-					$('#enzyme-1-rate-slider').val(res.enzyme1_rate);
-					$('#enzyme-2-temp-slider').val(res.enzyme2_temp);
-					$('#enzyme-2-rate-slider').val(res.enzyme2_rate);
-					$('#enzyme-3-temp-slider').val(res.enzyme3_temp);
-					$('#enzyme-3-rate-slider').val(res.enzyme3_rate);
-					$('#enzyme-4-temp-slider').val(res.enzyme4_temp);
-					$('#enzyme-4-rate-slider').val(res.enzyme4_rate);
+					$('#enzyme-1-temp-slider').slider({value: res.enzyme1_temp}).val(res.enzyme1_temp);
+					$('#enzyme-1-rate-slider').slider({value: res.enzyme1_rate}).val(res.enzyme1_rate);
+					$('#enzyme-2-temp-slider').slider({value: res.enzyme2_temp}).val(res.enzyme2_temp);
+					$('#enzyme-2-rate-slider').slider({value: res.enzyme2_rate}).val(res.enzyme2_rate);
+					$('#enzyme-3-temp-slider').slider({value: res.enzyme3_temp}).val(res.enzyme3_temp);
+					$('#enzyme-3-rate-slider').slider({value: res.enzyme3_rate}).val(res.enzyme3_rate);
+					$('#enzyme-4-temp-slider').slider({value: res.enzyme4_temp}).val(res.enzyme4_temp);
+					$('#enzyme-4-rate-slider').slider({value: res.enzyme4_rate}).val(res.enzyme4_rate);
 				} else {
 					api.showError('could not start experiment');
 				}
@@ -142,10 +140,6 @@ var api = (function () {
 
 	var showError = function(message){
 		$('main').prepend($('<div class="alert alert-danger">'+message+'</div>').delay(3000).slideUp('slow',function() { $(this).remove(); }));
-	};
-
-	var Config = function() {
-		return configuration;
 	};
 
 	return {
