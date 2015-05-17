@@ -102,3 +102,7 @@ body {
   color: #3c6bf0;
   font-weight: bold;
 }
+
+#go-button {
+  margin-bottom: 40px;
+}
